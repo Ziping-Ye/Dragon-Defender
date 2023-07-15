@@ -1,5 +1,5 @@
 """
-    Define customized dataset for supervised contrastive pretraining and classification.
+    Define customized dataset for supervised contrastive learning and classification.
 """
 
 from lib2to3.pgen2 import token
@@ -12,11 +12,11 @@ import torch
 from torch.utils.data import Dataset
 
 
-class ContrastivePretrainingDataset(Dataset):
-    """Customized dataset for supervised contrastive pretraining.
+class WindowEncoderDataset(Dataset):
+    """Customized dataset for supervised contrastive learning.
 
     Args:
-        df: pandas dataframe that contains data for supervised contrastive pretraining.
+        df: pandas dataframe that contains data for supervised contrastive learning.
     """
 
     def __init__(self, df):
@@ -32,7 +32,7 @@ class ContrastivePretrainingDataset(Dataset):
         return self.n_samples
 
 
-class WindowTaggingDataset(Dataset):
+class MessageTaggingDataset(Dataset):
 
     def __init__(self, df, sliding_window_length, in_dim, max_trace_length, val):
 

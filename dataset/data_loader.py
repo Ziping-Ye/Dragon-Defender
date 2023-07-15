@@ -35,8 +35,6 @@ class DataLoader(object):
         token_list = []
         label_list = []
         num_tokens = len(trace) - self.sliding_window_length + 1
-        
-        # todo: if num_token is less than zero, add padding
 
         for i in range(num_tokens):
             token = torch.cat([torch.zeros(1, self.in_dim), trace[i : i + self.sliding_window_length, :]])
@@ -57,7 +55,7 @@ class DataLoader(object):
 
             trace, label = row.loc['window'], row.loc['label']
 
-            # ! ignore traces shorter than 32
+            # ignore traces shorter than 32
             if len(label) < 32:
                 continue
 
