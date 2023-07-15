@@ -3,40 +3,30 @@
     We use LSTM + linear_classifier to classify/tag each window as intrusion detection system (IDS).
 """
 
+import json
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import pytorch_lightning as pl
-# from torchmetrics.classification import BinaryAccuracy, BinaryRecall, BinaryPrecision, BinaryF1Score
 from torchmetrics import Accuracy, Precision, Recall, F1Score, ConfusionMatrix
 
 from .supConPretrain import SupConPretrain
-from preprocessing import train_preprocess
 from .metrics import AttackTypeMetric 
 
-attack_type_dict = {
-    "benign" : 0,
-    "AKA_Bypass" : 1,
-    "Attach_Reject" : 2, 
-    "EMM_Information" : 3, 
-    "IMEI_Catching" : 4,
-    "IMSI_Catching" : 5, 
-    "Malformed_Identity_Request" : 6, 
-    "Null_Encryption" : 7,
-    "Numb_Attack" : 8, 
-    "Repeat_Security_Mode_Command" : 9, 
-    "RLF_Report" : 10,
-    "Service_Reject" : 11, 
-    "TAU_Reject" : 12,
-    "IMSI_Cracking" : 13,
-    "IMSI_Cracking_Reduced" : 14,
-    "Paging_Channel_Hijacking" : 15
-}
 
 class IntrusionDetection(pl.LightningModule):
 
-    def __init__(self, window_encoder_path, embedding_dim, hidden_dim, lr, num_layers=2, dropout=0.25, num_classes=2, attack_type_dict=attack_type_dict):
+    def __init__(self, 
+                 window_encoder_path, 
+                 embedding_dim, 
+                 hidden_dim, 
+                 lr, 
+                 attack_type_dict,
+                 num_layers=2, 
+                 dropout=0.25, 
+                 num_classes=2
+                 ):
 
         super().__init__()
         self.lr = lr
@@ -59,25 +49,21 @@ class IntrusionDetection(pl.LightningModule):
 
         # define metrics to evaluate the model performance
         # accuracy
-        # self.train_acc = BinaryAccuracy(num_classes=num_classes, ignore_index=-1)
-        # self.val_acc = BinaryAccuracy(num_classes=num_classes, ignore_index=-1)
         self.train_acc = Accuracy(task="binary", num_classes=num_classes, ignore_index=-1, validate_args = False)
         self.val_acc = Accuracy(task="binary", num_classes=num_classes, ignore_index=-1, validate_args = False)
+        
         # precision
-        # self.train_pre = BinaryPrecision(num_classes=num_classes, ignore_index=-1)
-        # self.val_pre = BinaryPrecision(num_classes=num_classes, ignore_index=-1)
         self.train_pre = Precision(task="binary", num_classes=num_classes, ignore_index=-1, validate_args = False)
         self.val_pre = Precision(task="binary", num_classes=num_classes, ignore_index=-1, validate_args = False)
+       
         # recall
-        # self.train_recall = BinaryRecall(num_classes=num_classes, ignore_index=-1)
-        # self.val_recall = BinaryRecall(num_classes=num_classes, ignore_index=-1)
         self.train_recall = Recall(task="binary", num_classes=num_classes, ignore_index=-1, validate_args = False)
         self.val_recall = Recall(task="binary", num_classes=num_classes, ignore_index=-1, validate_args = False)
+       
         # f1 score
-        # self.train_f1score = BinaryF1Score(num_classes=num_classes, ignore_index=-1)
-        # self.val_f1score = BinaryF1Score(num_classes=num_classes, ignore_index=-1)
         self.train_f1score = F1Score(task="binary", num_classes=num_classes, ignore_index=-1, validate_args = False)
         self.val_f1score = F1Score(task="binary", num_classes=num_classes, ignore_index=-1, validate_args = False)
+       
         # confusion matrix
         # self.confmat = ConfusionMatrix(num_classes=num_classes)
 
