@@ -1,8 +1,10 @@
 """
-    This script converts each trace to one example (sentence in NLP).
+    This script converts each trace to one train/test example for Message Tagger 
+    (equivalent to sequence/sentence for sequence classification task in NLP).
 """
 
 import os
+import json
 import pandas as pd
 from tqdm import tqdm
 import sys
@@ -51,11 +53,10 @@ def generate_one_example(csv_path, out_path):
 
 if __name__ == "__main__":
 
-    base_dir = r"/home/zipingye/cellular-ids"
-    # base_dir = r"/Users/zipingye/Desktop/cellular-ids"
+    base_dir = os.getcwd()
 
-    trace2example_error_list = [] # error when convert one trace to one example (sentence in NLP)
-    trace2example_error_file = os.path.join(base_dir, "preprocessing/trace2example_error.txt")
+    trace2example_error_list = [] # error when convert one trace to one example
+    trace2example_error_file = os.path.join(base_dir, "log_files/trace2example_error.txt")
 
     csv_dirs = [os.path.join(base_dir, "traces/benign_traces"), os.path.join(base_dir, "traces/attack_traces")]
     out_dir = os.path.join(base_dir, "traces/train")

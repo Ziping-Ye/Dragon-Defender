@@ -13,8 +13,13 @@ Please follow the instructions below to use and reproduce Dragon Defender's resu
 
 ### Step 1: Process Traces
 Let's start from raw traces - each example is a message (containing all feature values) and a label. 
+
+- Download the traces from the `raw traces` link above
+- Unzip the downloaded file
+- Create a folder `traces` and move the unziped files there
+
 ```
-cd 
+cd trace_process
 ```
 
 To train the Window Encoder, each train/test example is a sliding window (i.e., 31 consecutive messages, right padded), and a window label. Execute 

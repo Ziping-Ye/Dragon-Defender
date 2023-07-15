@@ -7,11 +7,11 @@
             - each cell is a feature sequence (= window_width)
 """
 
+import json
 import os
+import sys
 import pandas as pd
 from tqdm import tqdm
-from collections import OrderedDict
-import sys
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -72,19 +72,17 @@ def sliding_window(csv_path, out_path):
 
 if __name__ == "__main__":
 
-    base_dir = r"/home/zipingye/cellular-ids"
-    # base_dir = r"/Users/zipingye/Desktop/cellular-ids"
+    base_dir = os.getcwd()
+    global_parameters = json.load(open(os.path.join(base_dir, "helpers/Global_Parameters.json")))
 
-    sliding_window_length = 31
-
-    feature_list = ["message name", "Attach with IMSI", "Null encryption", 
-                    "Enable IMEISV", "Cell ID", "TAC", "EMM state", 
-                    "EMM substate", "EMM cause", "paging_record_number"]
+    feature_list = global_parameters['feature_list']
+    sliding_window_length = global_parameters['sliding_window_length']
+    # print("feature_list: ", feature_list)
 
     columns = feature_list + ["all_features", "label"]
 
     sliding_window_error_list = []
-    sliding_window_error_file = os.path.join(base_dir, "preprocessing/sliding_window_error.txt")
+    sliding_window_error_file = os.path.join(base_dir, "log_files/sliding_window_error.txt")
     
     csv_dirs = [os.path.join(base_dir, "traces/benign_traces"), os.path.join(base_dir, "traces/attack_traces")]
     out_dir = os.path.join(base_dir, "traces/pretrain")

@@ -1,7 +1,8 @@
 """
-    This script does all tasks to prepare the pretrain, train and validation dataset. 
+    This script takes care of constructing datasets for training, testing, and visualization.
 """
 
+import json
 import os
 import sys
 import random
