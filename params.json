@@ -1,0 +1,25 @@
+{
+	"learning_rate": 5e-4,
+	"pretrain_batch_size": 256,
+	"train_batch_size": 64,
+	"pretrain_epochs": 200,
+	"train_epochs": 100,
+	"embedding_dim": 32,
+	"lstm_hidden_dim": 256,
+	"sliding_window_length": 31,
+	"in_dim": 157,
+	"temperature": 0.07,
+	"weight_decay": 1e-4,
+	"cat_feature_list": [
+		"message name",
+		"Attach with IMSI",
+		"Null encryption",
+		"Enable IMEISV",
+		"Cell ID",
+		"TAC",
+		"EMM state",
+		"EMM substate",
+		"EMM cause"
+	],
+	"num_feature_list": ["paging_record_number"]
+}

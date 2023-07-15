@@ -1,0 +1,145 @@
+{
+    "SUPPORTED_MESSAGES" : [
+        ["rrcConnectionRequest", "rrc_conn_req"],
+        ["rrcConnectionRelease", "rrc_conn_release"], 
+        ["RRCConnectionReject", "rrc_conn_reject"],
+
+        ["rrcConnectionSetupComplete", "rrc_conn_setup_complete"],
+        ["rrcConnectionSetup_", "rrc_conn_setup"],
+
+        ["RRCConnectionReconfigurationComplete", "rrc_conn_reconfig_complete"],
+        ["rrcConnectionReconfiguration_", "rrc_conn_reconfig"],
+        
+        ["rrcConnectionReestablishmentRequest", "rrc_conn_reestablish_req"],
+        ["rrcConnectionReestablishmentReject", "rrc_conn_reestablish_reject"],
+        ["RRCConnectionReestablishmentComplete", "rrc_conn_reestablish_complete"],
+        ["rrcConnectionReestablishment_", "rrc_conn_reestablish"],
+
+        ["securityModeCommand", "rrc_sm_command"],
+        ["securityModeComplete", "rrc_sm_complete"],
+        ["securityModeFailure", "rrc_sm_failure"],
+
+        ["ueCapabilityEnquiry", "ue_capability_enquiry"],
+        ["ueCapabilityInformation", "ue_capability_info"],
+
+        ["ueInformationRequest", "ue_info_req"],
+        ["ueInformationResponse", "ue_info_resp"],
+
+        ["ulInformationTransfer", "ul_info_transfer"],
+        ["dlInformationTransfer", "dl_info_transfer"],
+        ["paging_", "paging"],
+
+        ["systemInformationBlockType1", "SIB1"],
+        ["sib1_", "SIB1"],
+        ["sib2_", "SIB2"],
+        ["sib3_", "SIB3"],
+        ["sib4_", "SIB4"],
+        ["sib5_", "SIB5"],
+        ["sib6_", "SIB6"],
+        ["sib7_", "SIB7"],
+        ["sib8_", "SIB8"],
+        ["sib15_", "SIB15"],
+        ["sib16_", "SIB16"],
+
+
+        ["csfbParametersRequestCDMA2000", "csfbParametersRequestCDMA2000"],
+        ["csfbParametersResponseCDMA2000", "csfbParametersResponseCDMA2000"],
+
+        ["handoverFromEUTRAPreparationRequest", "handover_EUTRA_prep_req"],
+        ["ulHandoverPreparationTransfer", "ul_handover_prep_transfer"],
+        ["mobilityFromEUTRACommand", "mobility_EUTRA_command"],
+
+        ["measurementReport", "measurement_report"],
+        
+
+
+        ["Attach request", "attach_req"],
+        ["Attach accept", "attach_accept"],
+        ["Attach complete", "attach_complete"],
+        ["Attach reject", "attach_reject"],
+
+        ["Detach request", "detach_req"],
+        ["Detach accept", "detach_accept"],
+
+        ["Tracking area update request", "tau_req"],
+        ["Tracking area update accept", "tau_accept"],
+        ["Tracking area update complete", "tau_complete"],
+        ["Tracking area update reject", "tau_reject"],
+
+        ["SERVICE REQUEST", "service_req"],
+        ["Service reject", "service_reject"],
+
+        ["Identity request", "identity_req"],
+        ["Identity response", "identity_resp"],
+        
+        ["Authentication request", "auth_req"],
+        ["Authentication response", "auth_resp"],
+        ["Authentication reject", "auth_reject"],
+        ["Authentication failure", "auth_failure"],
+
+        ["Security mode command", "sm_command"],
+        ["Security mode complete", "sm_complete"],
+        ["Security mode reject", "sm_reject"],
+
+        ["EMM information", "emm_info"],
+
+
+        ["Activate default EPS bearer context request", "activate_default_eps_bearer_context_req"],
+        ["Activate default EPS bearer context accept", "activate_default_eps_bearer_context_accept"],
+        ["Activate default EPS bearer context reject", "activate_default_eps_bearer_context_reject"], 
+
+        ["Activate dedicated EPS bearer context request", "activate_dedicated_eps_bearer_context_req"],
+        ["Activate dedicated EPS bearer context accept", "activate_dedicated_eps_bearer_context_accept"],
+        ["Activate dedicated EPS bearer context reject", "activate_dedicated_eps_bearer_context_reject"], 
+
+        ["Modify EPS bearer context request", "modify_eps_bearer_context_req"],
+        ["Modify EPS bearer context accept", "modify_eps_bearer_context_accept"],
+        ["Modify EPS bearer context reject", "modify_eps_bearer_context_reject"], 
+
+
+        ["Deactivate EPS bearer context request", "deactivate_eps_bearer_context_req"], 
+        ["Deactivate EPS bearer context accept", "deactivate_eps_bearer_context_accept"], 
+
+        ["PDN connectivity request", "pdn_conn_req"],
+        ["PDN connectivity reject", "pdn_conn_reject"],
+
+        ["PDN disconnect request", "pdn_disconn_req"],
+        ["PDN disconnect reject", "pdn_disconn_reject"],
+
+        ["ESM information request", "esm_info_req"],
+        ["ESM information response", "esm_info_resp"],
+        
+
+        ["LTE_RRC_Serv_Cell_Info", "rrc_serv_cell_info"],
+        ["LTE_NAS_ESM_State", "nas_esm_state"],
+
+        ["EMM_NULL", "nas_emm_state_null"],
+        ["'EMM State': 'EMM_REGISTERED'", "nas_emm_state_registered"],
+        ["'EMM State': 'EMM_DEREGISTERED'", "nas_emm_state_deregistered"],
+        ["EMM_REGISTERED_INITIATED", "nas_emm_state_registered_initiated"],
+        ["EMM_DEREGISTERED_INITIATED", "nas_emm_state_deregistered_initiated"],
+        ["EMM_TRACKING_AREA_UPDATING_INITIATED", "nas_emm_state_tau_initiated"],
+        ["EMM_SERVICE_REQUEST_INITIATED", "nas_emm_state_sevice_req_initiated"],
+
+
+        ["EMM_REGISTERED_NORMAL_SERVICE", "nas_emm_substate_registered_normal"],
+        ["EMM_REGISTERED_UPDATE_NEEDED", "nas_emm_substate_registered_update_needed"],
+        ["EMM_REGISTERED_ATTEMPTING_TO_UPDATE", "nas_emm_substate_registered_attempting update"],
+        ["EMM_REGISTERED_PLMN_SEARCH", "nas_emm_substate_registered_plmn_search"],
+        ["EMM_REGISTERED_NO_CELL_AVAILABLE", "nas_emm_substate_registered_no_cell"],
+        
+        ["EMM_DEREGISTERED_NORMAL_SERVICE", "nas_emm_substate_deregistered_normal"],
+        ["EMM_DEREGISTERED_LIMITED_SERVICE", "nas_emm_substate_deregistered_limited"],
+        ["EMM_DEREGISTERED_NO_CELL_AVAILABLE", "nas_emm_substate_deregistered_no_cell"],
+        ["EMM_DEREGISTERED_PLMN_SEARCH", "nas_emm_substate_deregistered_plmn_search"],
+        ["EMM_DEREGISTERED_ATTACH_NEEDED", "nas_emm_substate_deregistered_attach_needed"],
+        
+        ["EMM_WAITING_FOR_ESM_RESPONSE", "nas_emm_substate_waiting_esm_resp"],
+        ["EMM_WAITING_FOR_NW_RESPONSE", "nas_emm_substate_waiting_nw_resp"]
+
+    ],
+
+    "IGNORED_MESSAGES" : [
+    ] 
+
+}
