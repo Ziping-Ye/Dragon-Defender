@@ -2,10 +2,6 @@
 
 This repository contains the implementation and evaluation for the paper "Dragon Defender: Runtime Threat Detection for Cellular Devices."
 
-// ## Useful Links
-// - [Raw Traces](https://www.dropbox.com/sh/64ja37yhip60jre/AAByBoOVjqk5TY-bN7yMZyzSa?dl=0)
-// - [Processed Traces](https://www.dropbox.com/sh/y26vhn557ts3hpj/AAAsYWriLB7jWBbqEcjOAH7sa?dl=0)
-// - [Trained Model](https://www.dropbox.com/sh/3x2w56agrvicue4/AACkJSF4HbiyUV-C2WxZ4aFHa?dl=0)
 
 ## Instructions
 Please follow the instructions below to use and reproduce Dragon Defender's results.
